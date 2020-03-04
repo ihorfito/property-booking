@@ -1,0 +1,15 @@
+{
+  "place": {
+    "here": {
+      "api": "https://places.sit.ls.hereapi.com/places/v1",
+      "apiKey": ""
+    }
+  },
+  "db": {
+    "username": "*",
+    "host": "*",
+    "database": "*",
+    "password": "*",
+    "port": 5432
+  }
+}

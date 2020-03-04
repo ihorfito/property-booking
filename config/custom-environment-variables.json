@@ -1,0 +1,15 @@
+{
+  "place": {
+    "here": {
+      "api": "HERE_API",
+      "apiKey": "HERE_API_KEY"
+    }
+  },
+  "db": {
+    "username": "DB_USERNAME",
+    "host": "DB_HOST",
+    "database": "DB_DATABASE_NAME",
+    "password": "DB_PASSWORD",
+    "port": "DB_PORT"
+  }
+}

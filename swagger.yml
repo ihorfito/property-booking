@@ -1,0 +1,127 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Property Booking"
+host: "localhost:3000"
+basePath: "/api"
+schemes:
+  - "http"
+paths:
+  /bookings:
+    post:
+      summary: "Add a new booking to the application"
+      description: ""
+      operationId: "addBooking"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Booking property"
+          required: true
+          schema:
+            $ref: "#/definitions/BookingRequest"
+      responses:
+        201:
+          description: "successfuly booked"
+        400:
+          description: "Invalid input"
+
+  /properties:
+    get:
+      summary: "Finds properties by coordinates"
+      description: "list properties near coordinates"
+      operationId: "listProperties"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "at"
+          in: "query"
+          description: "Coordinates in format lat,long"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "successful"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/PropertyDTO"
+        400:
+          description: "Invalid coordinates"
+  /properties/{propertyId}/bookings:
+    get:
+      summary: "Find bookings by property Id"
+      description: "Returns list of bookings"
+      operationId: "listBookings"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "propertyId"
+          in: "path"
+          description: "ID of property"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/BookingDTO"
+        400:
+          description: "Invalid ID supplied"
+definitions:
+  BookingDTO:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      customer:
+        type: "object"
+        properties:
+          email:
+            type: "string"
+          firstName:
+            type: "string"
+          lastName:
+            type: "string"
+      startDate:
+        type: "string"
+        format: "date-time"
+      endDate:
+        type: "string"
+        format: "date-time"
+      propertyId:
+        type: "string"
+  PropertyDTO:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      propertyId:
+        type: "string"
+      coordinates:
+        type: "object"
+        properties:
+          latitude:
+            type: "number"
+          longitude:
+            type: "number"
+  BookingRequest:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      startDate:
+        type: "string"
+        format: "date-time"
+      endDate:
+        type: "string"
+        format: "date-time"
+      propertyId:
+        type: "string"
