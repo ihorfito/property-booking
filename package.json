@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "prestart": "npm run build",
     "start": "npm run serve",
-    "build": "./node_modules/.bin/tsc && npm run lint",
+    "build": "./node_modules/.bin/tsc",
     "serve": "node dist/src/server.js",
     "test": "./node_modules/.bin/jest --forceExit --coverage --verbose",
     "lint": "./node_modules/.bin/tsc --noEmit && ./node_modules/.bin/eslint \"**/*.{js,ts}\" --quiet --fix"
@@ -14,15 +15,14 @@
   "dependencies": {
     "@hapi/joi": "^16.1.8",
     "axios": "^0.19.2",
-    "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
     "config": "^3.2.4",
     "express": "^4.17.1",
     "http-status": "^1.4.2",
-    "jsonwebtoken": "^8.5.1",
     "pg": "^7.18.2",
     "sequelize": "^5.21.5",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "typescript": "^3.7.4"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.30",
@@ -48,7 +48,6 @@
     "jest": "^24.9.0",
     "sinon": "^9.0.0",
     "supertest": "^4.0.2",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.4"
+    "ts-jest": "^24.2.0"
   }
 }

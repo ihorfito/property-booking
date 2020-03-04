@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: "1.0.0"
   title: "Property Booking"
-host: "localhost:3000"
+host: "BookingProperty-env.eba-5weuytkj.eu-central-1.elasticbeanstalk.com"
 basePath: "/api"
 schemes:
   - "http"

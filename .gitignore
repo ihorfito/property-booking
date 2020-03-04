@@ -36,3 +36,8 @@ yarn.lock
 
 .idea/*
 config/local.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
