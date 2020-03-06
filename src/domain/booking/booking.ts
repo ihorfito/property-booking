@@ -1,7 +1,6 @@
 import {Customer} from "./customer";
 import {DateTimeRange} from "../shared-kernel/date-time-range";
 import {Entity} from "../shared-kernel/entity";
-import {PropertyParams} from "../property/property";
 
 export interface BookingProps {
     customer: Customer;

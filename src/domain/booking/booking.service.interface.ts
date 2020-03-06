@@ -1,4 +1,4 @@
-import {Booking, BookingProps} from "./booking";
+import {Booking} from "./booking";
 
 export interface BookingServiceInterface {
     bookProperty(options: {propertyId: string, firstName: string, lastName: string, email: string, startDate: Date, endDate: Date}): Promise<void>;
