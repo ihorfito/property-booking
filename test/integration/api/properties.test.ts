@@ -66,12 +66,25 @@ describe("Properties API", () => {
     });
     describe("Returns the bookings for a property", () => {
         const propertyId = "840dr5ru-b80d8605986e40cea665cba18afb7894";
+        beforeAll(async () => {
+            const result = await request(app).post(`/api/bookings`).send({
+                propertyId,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                email: faker.internet.email(),
+                startDate: new Date().toISOString(),
+                endDate: new Date().toISOString(),
+            });
+            expect(result.status).toEqual(201);
+        });
         test("should returns the bookings for a property", async () => {
             const result = await request(app).get(`/api/properties/${propertyId}/bookings`);
             expect(result.status).toEqual(200);
             expect(result.body).toBeInstanceOf(Array);
+            expect(result.body.length).toBeGreaterThan(0);
             result.body.forEach((e: BookingDTO) => {
-                expect(e.id).toEqual(0);
+                expect(e.id).toBeDefined();
+                expect(e.propertyId).toEqual(propertyId);
             });
         });
     });

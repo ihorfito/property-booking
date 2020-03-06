@@ -25,7 +25,7 @@ paths:
             $ref: "#/definitions/BookingRequest"
       responses:
         201:
-          description: "successfuly booked"
+          description: "successfully booked"
         400:
           description: "Invalid input"
 
